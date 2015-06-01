@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+
+(@include_once __DIR__ . '/../../vendor/autoload.php') || @include_once __DIR__ . '/../../../../autoload.php';
+
+use Symfony\Component\Console\Application;
+use Classes\Console\ScrapeCommand;
+
+$app = new Application('Sainsburys Scraper', '0.1.0');
+
+$app->addCommands(array(
+    new ScrapeCommand,
+));
+$app->run();
